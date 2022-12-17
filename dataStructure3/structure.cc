@@ -292,8 +292,8 @@ class Treap{
 		~Treap();
 		void rotLeft(TreapNod* &);
 		void rotRight(TreapNod* &);
-		void insertNod(TreapNod* &,int);
-		bool searchNod(TreapNod* &,int) const;
+		void insert(TreapNod* &,int);
+		bool search(TreapNod* &,int) const;
 		void des(TreapNod* &);
 		void displayTreap(TreapNod *root, int space = 0, int height =10)const;
 		TreapNod* &getR() {return root;}
@@ -314,29 +314,29 @@ void Treap::rotRight(TreapNod* &root) { //right rotation
 	root->l= Y;
 	root = L;
 }
-void Treap::insertNod(TreapNod* &root, int d) { //insertion
+void Treap::insert(TreapNod* &root, int d) { //insertion
 	if (root == nullptr) {
 		root = new TreapNod(d);
 		return;
 	}
 	if (d < root->data) {
-		insertNod(root->l, d);
+		insert(root->l, d);
 		if (root->l != nullptr && root->l->priority > root->priority)
 			rotRight(root);
 	} else {
-		insertNod(root->r, d);
+		insert(root->r, d);
 		if (root->r!= nullptr && root->r->priority > root->priority)
 			rotLeft(root);
 	}
 }
-bool Treap::searchNod(TreapNod* &root,int key) const{
+bool Treap::search(TreapNod* &root,int key) const{
 	if (root == nullptr)
 		return false;
 	if (root->data == key)
 		return true;
 	if (key < root->data)
-		return searchNod(root->l, key);
-	return searchNod(root->r, key);
+		return search(root->l, key);
+	return search(root->r, key);
 }
 void Treap::displayTreap(TreapNod *root, int space, int height) const{ //display treap
 	if (root == nullptr)
@@ -379,7 +379,7 @@ struct bstnode{
 
 class BST{
 	public:
-		BST(){}
+		BST(){if(root != nullptr) root = nullptr;}
 		~BST();
 		void insert(int);
 		bool search(int) const;
@@ -404,15 +404,17 @@ void BST::des(bstnode* root){
 			q.push(cur->r);
 		delete cur;
 	}
+	//cout << "des complete" << endl;
 };
 
 void BST::insert(int val){
-cout << val << endl;
+	//cout << val << " " << root << endl;
 	if(root == nullptr){
 		root = new bstnode(val);
 		return;
 	}
-	cout << (root->data) << "  "  <<  root << endl;
+	//cout << (root->data) << "  "  <<  root << endl;
+	//cout << (root->data) << "  "  <<  root << endl;
 	bstnode* cur = root;
 	while(1){
 		if(val > cur->data){
