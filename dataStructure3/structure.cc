@@ -57,6 +57,8 @@ class node{
 class Skiplist {
 	public:
 		Skiplist() {
+			tail = nullptr;
+			head = nullptr;
 			tail = new node(INT_MAX-1);
 			head = new node(INT_MIN, tail);
 			height = 1;
@@ -130,10 +132,10 @@ class Skiplist {
 
 		void add(int val) {
 			int times = 1;
-			while(1){
-				if(rand() % 2)
-					++times;
-				else
+			const int maxHeight = pow(2,15);
+			while(rand() % 2){
+				++times;
+				if(maxHeight < times)
 					break;
 			}
 
