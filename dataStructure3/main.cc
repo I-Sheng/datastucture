@@ -36,6 +36,7 @@ int main(){
 				break;
 		}
 		fout << "bst end" << endl << endl;
+		cout << "bst end" << endl << endl;
 		for(int j = 10;j <= range;++j){
 			bool flag = 0;
 			const int times = pow(2, j);
@@ -59,6 +60,7 @@ int main(){
 				break;
 		}
 		fout << "treap end" << endl << endl;
+		cout << "treap end" << endl << endl;
 
 
 		for(int j = 10;j <= range;++j){
@@ -84,6 +86,7 @@ int main(){
 				break;
 		}
 		fout << "skip-list end" << endl << endl;
+		cout << "skip-list end" << endl << endl;
 
 
 		for(int j = 10;j <= range;++j){
@@ -109,6 +112,7 @@ int main(){
 				break;
 		}
 		fout << "array_of_sorted_arrays end" << endl << endl;
+		cout << "array_of_sorted_arrays end" << endl << endl;
 
 		for(int j = 10;j <= range;++j){
 			bool flag = 0;
@@ -133,6 +137,7 @@ int main(){
 				break;
 		}
 		fout << "hast table end" << endl << endl;
+		cout << "hast table end" << endl << endl;
 
 
 		fout << round << " round is end." << endl << endl;
