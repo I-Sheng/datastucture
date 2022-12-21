@@ -11,32 +11,8 @@ int main(){
 	auto end = chrono::steady_clock::now();
 	ofstream fout;
 	fout.open("./out", ios_base::out);
-	for(int round = 0;round < 10;++round){
+	for(int round = 3;round < 10;++round){
 
-		for(int j = 10;j <= range;++j){
-			bool flag = 0;
-			const int times = pow(2, j);
-			BST bst;
-			start = chrono::steady_clock::now();
-			for(int i = 0;i < times;++i){
-				bst.insert(rand() % Max);
-			}
-			end = chrono::steady_clock::now();
-			auto time = (double)chrono::duration_cast<chrono::microseconds>(end - start).count() / 1000000;
-			fout << time << " ";
-			if(time > 900)
-				flag = true;
-			start = chrono::steady_clock::now();
-			for(int i = 0;i < times;++i)
-				bst.search(rand() % Max);
-			end = chrono::steady_clock::now();
-			time = (double)chrono::duration_cast<chrono::microseconds>(end - start).count() / 1000000;
-			fout << time << " " << endl;
-			if(time > 900 || flag)
-				break;
-		}
-		fout << "bst end" << endl << endl;
-		cout << "bst end" << endl << endl;
 		for(int j = 10;j <= range;++j){
 			bool flag = 0;
 			const int times = pow(2, j);
