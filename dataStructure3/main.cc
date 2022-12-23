@@ -11,7 +11,7 @@ int main(){
 	auto end = chrono::steady_clock::now();
 	ofstream fout;
 	fout.open("./out", ios_base::out);
-	for(int round = 3;round < 10;++round){
+	for(int round = 0;round < 3;++round){
 
 		for(int j = 10;j <= range;++j){
 			bool flag = 0;
