@@ -41,7 +41,7 @@ int main(){
 	int const average_time = 10;
 	const int count_time = 100;
 	srand(time(0));
-	for(int x = 5;x <= 500;x += 5){
+	for(int x = 0;x <= 500;x += 5){
 #ifdef DBG
 		cout << x << endl;
 #endif
